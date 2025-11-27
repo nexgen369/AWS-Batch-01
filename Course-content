@@ -1,0 +1,125 @@
+AWS- Fundamentals and Associate Level:
+--------------------------------------
+.Fundamentals(Terminology of Cloud)
+.Associate (Architecting cloud service to run application with cost optimization)
+.Multiple project real time based
+.25+ services from AWS
+.Understand delploying (Java, python, node.js project both frontend and backend)
+.Automation(DevOps)
+
+What is Cloud Computing?
+------------------------
+Cloud computing is nothing on-demand delivery of IT resources over the internet with pay-as-you-go pricing model.
+That you can access technical services
+
+Ex: Storage, server, database, networking etc
+
+Cloud Providers: 1.AWS (Amazon web services 200+ services globally)
+				 2.Azure (Micro soft 100+ services globally)
+				 3.GCP (Google cloud 100+ services globally)
+				 
+Pay-as-you-go : nothing just pay what you use
+				Ex: Storage from AWS Jan-1GB/Feb-2GB/Mar-3GB
+                There is no upfrontcost (no intial payment required, you start using it without paying anything
+				
+
+AWS Cloud Practitioner (Foundation level)- Course Content:
+----------------------------------------------------------
+1.Introduction to cloud computing
+.What is cloud computing
+.Cloud Deployment Models (Public, Private, Hybrid)
+.Cloud Service Models (IaaS, PaaS, SaaS)
+
+2.AWS Global Infrastructure
+.Regions, AZ-Availability Zones
+.Edge Locations and Cloudfront
+
+3.Core AWS Services
+Compute:
+.EC2 basics
+.EC2 instance types
+.pricing options (on-demand, Reserved, Spot)
+
+Storage
+.S3 Simple Storage service (buckets)
+.EFS Elastic File Storage
+
+Database
+.RDS Relational database
+.DynamoDB
+
+4.Networking
+.VPC Virtual Private cloud
+.subnets, Route tables
+.Security groups vs NACLS
+.Load Balancers and Auto scaling
+
+5.Identity and Access Managment (security service)
+.IAM users, Groups, Roles
+.Polices
+.MFA
+
+6.Security and Compliance
+.Cloud trail (tracks all users activity)
+
+7.Monitoring and Managment
+.CloudWatch
+.Cloudfromation
+
+8.Billing & Pricing
+.Pricing calculator
+.Cost Explorer
+.Budgets
+
+AWS Solutions Architect-Associate (SAA) Course Content:
+-------------------------------------------------------
+1.Advanced AWS Compute
+.EC2 advanced features
+.Lauch templates
+.EC2 Autoscaling and Load Balancer
+.EBS-Elastic Block (storage service only AWS)
+.Lambda and serverless Arhitecture
+
+2.Storage
+.S3 in detail (storage classess, pricing, webhosting), polices
+.EFS in details only server to server file sharing
+
+3.Database:
+.RDS Relational database advanced with Multi AZ
+.DynamoDB advanced
+
+4.Networking
+.VPC Full architecture
+.Private/public subnets
+.NAT gateway
+.Internet gateway
+.Elastic IP
+
+5.security 
+.IAM-Identity and Access Managment advanced
+
+6.Monitoring and logging
+.Cloudwatch metrics, logs, alarms
+.Cloudtrail advanced setup
+
+7.Application Intergration
+.SQS
+.SNS
+
+8.Architecture and desing patterns
+.Well-Architected Framework (6 pillars)
+.Multi-tier architecture (three tier)
+
+9.Infrastructure as Code
+.Cloudformation
+
+10.Exam Preparation
+.Scenario-based questions
+.Case studies
+.Mock test and Interview
+
+11.Project:Micro service Project
+.Frontend
+.API gateway
+.Backend services
+.Database
