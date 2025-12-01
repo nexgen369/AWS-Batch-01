@@ -1,0 +1,78 @@
+Date: 01/12/2025	
+
+6.Cloud Service Models (IaaS, PaaS, SaaS)	
+-----------------------------------------
+IaaS(Infrastructure as a service):
+	-IaaS delivers on-demand infrastructure resources, such as (servers, storage, networking and virtualization.
+	-With IaaS the service provider owns and operates the infrastructure, but cutomers will need to purchase and manage software, such as (OS, data, and applications)
+	
+PaaS(Platform as as service):
+	-PaaS delivers and manages hardware and software resources for developing, testing, delivering and managing cloud applications.
+	-Providers typically offer develpment tools, and cloud database with PaaS
+	
+SaaS(Sofware as a service):
+	-SaaS provides a full application stack as a service that customers can access and use.
+	-SaaS solutions often come as read-to-use applictions, which are managed by the cloud service provider.
+
+	SaaS Examples:
+	--------------
+		-Microsoft 365
+		-Zoom
+		-Teams
+		-Jira
+		
+7.AWS Global Infrastructure:
+--------------------------
+-is the worldwide physical and logical architecture that aws uses to deliver cloud services with high availability, low latency, scalability.
+
+	Regions: 37 world wide
+	Availability Zones: 114 world wide
+	Edge locations: 700+ (CDN-Content delivery network) world wide
+	
+	In India:
+	
+	Regions: 2 (mumbai and hyderbad)
+	AZ-Availability Zones: 6 
+	Edege locations: 33
+		-Mumbai: 10
+		-New Delhi: 7
+		-Chennai: 7
+		-Bengalore: 4
+		-Hyderabad: 3
+		-kolkata: 2
+		
+	mumbai(ap-south-1a, 1b, 1c) 
+	Hyderabad(ap-south-2a, 2b, 2c) more 100kms distance
+	
+				
+8.IAM- Identity and access managemnent(security service):
+---------------------------------------------------------
+Difference between root user and IAM user:
+
+
+Root User:
+----------
+	-The account created when an AWS account is firt set up
+	-Uses the email and passord used to register the AWS account/for login also uses same details & MFA
+	-Root account has full access, unrestricted accsss to all AWS services and billing.
+	-Root user will create IAM user
+	-Root user not suggested to use day-to-day interactions
+	
+IAM User:
+---------
+	-A user created under the AWS account(root account) using identity and Access managment
+	-IAM user has only the permission explicity assinged via polices (limited permissions) 
+	-IAM user login using link(username, password, 12digit account number & MFA
+
+
+	Example: We have project(using AWS services such as EC2, S3, database)
+			Team lead (root user)
+			user-1: only EC2 permission no other permission
+			user-2: only s3 permission no other permission
+			user-3: only database permission no other permission
+				
+				
+			Groups: Dev Team (permission cloudfront access)	
+					user-1 added under the group
+					
+					EC2+cloudfront
