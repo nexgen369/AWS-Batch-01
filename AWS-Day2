@@ -1,0 +1,77 @@
+02/12/2025					
+IAM-Identity and access managment(Hands-on):
+--------------------------------------------
+-IAM users
+-Groups
+-Policies
+-Roles
+					
+Scenario
+
+1.Create a user called dev-user who can log in to awsw console and full access S3 only.
+
+read only and full acccess
+
+Permission Options:
+	-add user to group (nothing but collection of users)
+	-copy permissions (can copy existing user permissions)
+	-Attach policies directly (permissions)
+
+
+Output:
+	-A new user is created
+	-User gets (username, Console login URL, Intial password)
+	
+Login details:
+	-console URL: https://683554908618.signin.aws.amazon.com/console
+	-User Name: dev-user
+	-Password: @n8P9V8(
+	
+	
+	
+For the real time best practices: never attach polices directly. always use groups	
+				  --------------	
+
+2.Create IAM Group and attach Policies:
+---------------------------------------
+
+Scenario
+
+Create a group for DevOPs engineers with limited EC2+S3 access
+
+	-EC2ReadOnlyAccess
+	-S3ReadOnlyAccess
+	
+3.Assign user to group
+----------------------
+	
+4.AWS CLI(command line interface):
+----------------------------------
+AWS ClI: A tool to control AWS using terminal commands
+		 To Automate AWS tasks
+		 To Manage aws resources (Example: To create IAM user) 
+
+Steps:
+	-download and install git bash: https://git-scm.com/install/windows
+
+	-create Access key:AKIAZ6JYMFHFON4FYRAVK4JN6W9ygHqbvICKhx84x55BkEuXArk+1jbAyOIC
+	-secret key:AVK4JN6W9ygHqbvICKhx84x55BkEuXArk+1jbAyO
+	
+	-check "aws --version" in git bash
+	-if you get not recognised if the case please down and install AWS cli: https://awscli.amazonaws.com/AWSCLIV2.msi
+	
+	-again close git bash and open in run as admin
+	-then execute aws configure with providing access and secret key
+
+5.Create IAM role for EC2 (Read-world hands-on)
+
+Scenario
+
+Your EC2 instance needs to access S3.
+You must create an IAM Role with S3 permissions.
+
+rolename: "Nexgen-EC2-S3-Access_Role"
+
+Next Topic: About server, hardware components, software components/EC2:
+-----------------------------------------------------------------------
+Create EC2 instance and attach s3 role
