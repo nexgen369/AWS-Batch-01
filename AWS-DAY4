@@ -1,0 +1,70 @@
+Next Topic: S3 storage class and pricing and Cloudfront:
+--------------------------------------------------------
+
+S3 Storage Class:						Use Case:						    cost:
+--------------------------------------------------------------------------------
+1.S3 standard							Frequent access data				High/Milliseconds
+2.S3 standard-infrequent access			Occasional access					Medium/Milliseconds
+3.S3 intelligent Tiering				Unknown access pattern				Auto moves between tiers/milliseconds
+4.S3 one zone-IA						Infrequent access, single AZ		Lower than standard-IA/Milliseconds
+5.S3 Glacier Instant Retrival			Fast retrival						Low/milliseconds
+6.S3 Glacier flexible Retrival			Not infrequent retrival				cheaper/Minutes to Hours
+7.S3 glacier deep Archive				Very long-term storage 				Cheaper storage/Hours
+8.S3 Express One Zone					Ultr low latency high 
+										performance, single AZ				High
+9.S3 Access Grants						Fine-grained permission				add-on													
+
+
+Note:
+high latency : low transfer speed 
+low latency: high tansfer speed
+
+
+05/12/2025
+
+AWS Cloud Front(edge Locations):
+--------------------------------
+-Cloudfront is CDN(Global Content Delivery Network)
+
+- cloud front desinged to deliver content (web pages, images, videos, APIs, software, static and dyamic content) to users with low latency and high transfer speed.
+-It works by caching content at edge locations world wide, so that users can access data from server closest to them.
+-In india we have 33 edge locations
+
+Core Concepts:
+--------------
+
+When a user requests content:
+	1.Request goes to the nearest cloudfront edge location.
+	2.if cached(cache hit), Cloudfront returns it immediately
+	3.If not cached (cache miss), Cloudfront fetch it from origin (S3)
+	4.It caches the content for future request based on TTL(Time to Live)
+	5.Returns content to user with minimal latency
+	
+Key Components:
+---------------
+Origin:  Locations where original content is stored (S3 bucket)
+Distrubtion: Speedup delivey content
+
+
+Why Cloudfront is Used:
+-----------------------
+-Low Latency high performance
+-Global content delivery
+-Cost optimization
+
+Usecase:
+--------
+Website acceleration: HTML, CSS, JS, Images
+Video streaming: OTT platforms
+
+How it Works:
+-------------
+User->DNS Resolves to near edge location->Cloudfront cache
+
+Pricing Model(High-Level):
+--------------------------
+-Data Transfer Out
+-Requests(of HTTP/HTTPS requests)
+
+(S3 + Cloud Front + Route 53)
+-----------------------------
