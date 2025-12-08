@@ -1,0 +1,43 @@
+8/12/2025
+
+(S3 + Cloud Front + Route 53) 
+-----------------------------
+
+-Access Application from Route 53 
+-Please register website from go daddy (aklr.shop)
+
+Name servers:
+	-ns-560.awsdns-06.net.
+	-ns-432.awsdns-54.com.
+	-ns-1562.awsdns-03.co.uk.
+	-ns-1125.awsdns-12.org.
+
+What is Route 53 ?
+------------------
+-53 is a DNS port Number
+-Highly available and scalable DNS(Domain Name System) and domain management service
+-It is used to route users request to applications hosted on AWS (www.aklr.shop)
+-Route 53 maps domain names (like www.aklr.shop to IP addresses (192.168.1.1) so browsers can find your website 
+
+
+Core Functions:
+	-DNS service: Converts domain names to IP addresses (DNS resolutions)
+	-Domain Registration: you can buy domains directly in Route 53
+	-Highly available and Global
+	
+Use case: Hosting website in s3 + Cloudfront + Route 53 
+
+what is TLS Certificate?
+------------------------
+-TLS : transport layer security used to enable HTTPS communication between clients and your application
+
+Purpose:
+--------
+-Converts HTTP to HTTPS
+-Secures commuication
+-Protects sensitive data like passwords, card details etc
+
+
+How TLS certificate works:
+---------------------------
+-Browser requests https://aklr.shop that server sends TLS certificate to browser
