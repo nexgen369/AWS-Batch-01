@@ -1,0 +1,73 @@
+What is Git?
+-------------
+-Git is distributed version control system(VCS) used to track code changes,
+-Collaborate with teams, and manage software versions
+-As a DevOps Engineer, Git is the first and most essential skill becuase every CI/CD pipeline starts from Git.
+-CI-Contineous Integretion/CD-Contineous delivery or deployment
+
+Why Git is important in DevOps?
+-------------------------------
+-Store code versions safely
+-Collaboration with developers
+-Integrates with Jenkins, GitHub Actions, GitLab, etc
+-Supports automation and code review
+-Used for IaC(infrastrucuture as Code)
+
+Core Git Concepts:
+------------------
+Concept					Meaning
+-------------------------------
+Respository				Project folder controlled by git
+Local repo				On your system
+Remote repo				On Github
+Branch					Paralled development line
+Merge					Combine changes from 1 branch to another branch
+Pull Request(PR)/
+merge request			Request merge code into main branch (ex: main branch and shiva branch)
+
+
+Git Installations (Linux):
+--------------------------
+git init
+	Initilize Git (firt time)
+	
+Add your GitHub reposintory URL
+	git remote add origin https://github.com/nexgen369/Practicals_Repo_Batch01.git				
+
+git clone "git remote add origin https://github.com/nexgen369/Practicals_Repo_Batch01.git"
+
+Repository token details:
+-------------------------
+username: nexgen369
+Personal access token: "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"
+
+
+12/12/2025
+Git Stages:
+-----------
+1.Working directory (tree)
+-This is your local project directory where you create, edit, delete files
+-Nothing but files here are untracked or modified
+
+command:
+	git status
+	
+Add file to staging:
+	git add file
+	
+2.Staging Area(Index):
+-A temporary holding space where you put changes ready for the next commit
+-You control exactly what goes into the next commit
+
+command:(Add all changes)
+	git add .
+	
+3.Local respository(.git):
+-your committed history stored inside the .git directory.
+-once committed -> safely stored in Git respository
+
+command:
+	git commit -m "nexgen"
+	
+View commit history:
+	git log --online
