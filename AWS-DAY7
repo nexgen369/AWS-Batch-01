@@ -1,0 +1,151 @@
+13/12/2025
+
+Tmr Class: Will Understand about CI/CD (Jenkins):
+------------------------------------------------
+what is Jenkins?
+-Jenkins is open source automation server used to implement CI/CD(Contineous Integration/Contineous delivery/deployment) pipelines
+-It automates building, testing, security scanning and application deployment
+-Jenkins is DevOps tool
+
+
+Why Jenkins is Used?
+--------------------
+-Automates code build, test and deployment
+-Reduces manual errors
+-Enables fast feedback to developers
+-Support micro services and monolathic applications
+-Integrates with almost all DevOps tools
+
+Understand what is monolithic vs Micoservices Application/Architect:
+--------------------------------------------------------------------
+1.Monolithic Architecture: A monolithic application is built as one large, tightly-coupled unit where
+all componenets (UI, business logic, database access, etc) are combined into a single codebase and
+deployed together.
+
+Ex: Order Management Service
+	Inventory & Catalog Service
+	Payment Service
+	Cart Service
+
+
+characteristics:
+----------------
+.single codebase--> one build, one deployment
+.All features---(login, payments, products, orders, etc) are inside one service 
+.Uses one database (usually)
+.Easy to develop initially, but harder to scale and maintain later.
+
+Example:
+--------
+An e-commerce application where:
+.Authentication, products catalog, orders, payments, notifications--->all live inside one codebase.
+.If you update the "Payments" module, you need to redeploy the entire application.
+
+Micro services Architecture:
+----------------------------
+A microservices application is built as a collection of small, independent services, each responsible for
+one feature or functionality
+.Each service has its own codebase and can be developed, deployed, and scaled independently
+.Service communicate via APIs (REST)
+.Each service can use its own database.
+
+characteristics:
+----------------
+.Loosely coupled and independent
+.Easier to scale individual services
+.Teams can work on different services at the same time.
+.More complex to manage (needs service discovery, monitoring, orchestration like K8S/Ansible/Cloud
+
+Example:
+--------
+The same e-commerce application in microservices:
+.Auth Service--> hanldes login/signup---Cont1
+.Product Service-->manages orders---Cont2
+.Order Service-->handles orders----Cont3
+.Payment Service-->process payments---Cont4
+.Notification-->sends emails/SMS---Cont5
+
+
+2.Jenkins in CI/CD flow:
+------------------------
+-Developer push code to git
+-Jenkins detects changes via webhook
+-Jenkins pulls code
+-Jenkins builds the application
+-Jenkins runs test
+-Jenkins performs quality/security checks
+-Deploy to enviroments (Dev/Test/Prod)
+
+what is Dev/Test/Prod?
+----------------------
+1.Dev(Development):
+	Purpose: -Build and change code
+			 -used by developers
+			 -Frequent code changes
+			 -May be unstable
+			 -Fast deployment
+			 
+			 Example: Developer push code --> Jekins builds --> deploys to Dev
+			 
+2.Test(QA/Staging):
+	Purpose: -Validate before production
+			 -used by QA, automation
+			 -Stable compared to Dev
+			 -Runs performance test
+			 -Runs security test
+			 -Production-like configuration
+			 
+			 Example: Dev-approved build --> deployed to Test --> test cases executed
+			 
+3.Prod(Production):
+	Purpose: -Serve real users
+			 -Live environment
+			 -Real data and transaction
+			 -Strict access control
+			 -monitorning and alert enabled
+			 -Zero-downtime deployments 
+			 
+			 Example: Test-approved build --> deployed to Prod --> users access application
+			 
+Final Flow: Dev --> Test --> Prod
+
+Note:
+Dev, Test, and Prod are isolated environment used to develop, validate and safely run applications without impacting end users.
+
+Jenkins Installation:
+---------------------
+-Create EC2 (ubuntu, t2.micro, storage 20gb, allow protocols http/https/all traffic)
+-connect to instance install jenkins in EC2
+
+commands:
+update system
+	-sudo apt update && sudo apt upgrade -y
+install java(Required)
+	-sudo apt install openjdk-17-jdk -y
+	
+	-curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+  
+	-echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+  
+   -sudo apt-get update
+   -sudo apt-get install jenkins
+   
+   access jenkins using your EC2 public ip address and jenkins port No: 3.238.132.70:8080 
+   
+   To unlock jenkins Get the initial administrative password
+	-sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+	
+	pass: 60deabaf864045c2bdb648b5ae35c483
+	
+	Provide pwd which we have copied to unlock jenkins
+
+-> Select "Install Suggested Plugins" card (it will install those plugins)
+
+-> Create Admin account
+	username:siva
+	password:Siva@123
+	fullname:sivakumar
+	email id:vsivakumar668@gmail.com
