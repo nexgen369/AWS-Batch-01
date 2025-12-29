@@ -1,0 +1,217 @@
+22/12/2025
+
+SNS(Simple Notification service):
+---------------------------------
+Definition: SNS is a fully managed messaging and notification service.
+That follow the publish/subscribe(pub/sub) model.
+
+.Publisher-->sends a message to a topic
+.Subscriber-->receive the message(email, SMS)
+
+when you create TOPIC:
+Topic types: 
+1)FIFO: Subscription protocols: SQS
+2)Standard: Subscription protocols: SQS, Lambda, Data Firehose, HTTP, SMS, email, mobile application endpoints
+
+
+Key concepts:
+-------------
+.Topic: A communication channel (Ex: ordersTopic)
+.Publisher:Sends a message to the topic
+.Subscriber:Endpoints (Email, SMS)
+
+How it Works:
+-------------
+Create a SNS Topic
+Add Subscriber	(like email/SMS)
+Publisher sends a message to the topic
+SNS deliver the message to all subscribers
+
+Example:
+1.EC2 CPU utilization
+	When server reach 80% threshold u will get notification
+
+
+2.E-commerce application
+	-When a new order is placed-->an event is publised to SNS topic
+	-Subscribers:
+		.Customers gets Email/SMS confirmation
+		.Admin gets a Slack/HTTP notification
+
+Use cases:
+----------		
+.Send alerts/notifications (with cloudwatch,EC2)
+.Fan-out messaging->one event trigger multiple actions			 
+
+
+AWS Cloudtrail:
+---------------
+-tracks users activity
+-Cloud trail is a service that helps you track and monitor all actions taken in your aws
+account-by users, services or applications
+
+-It's mainly used for security, auditing and compliance purpose
+
+Simple Definition:
+-------------------
+Cloudtrail records who did what, when, and from where in your aws environment
+
+Key features:
+-------------
+1.Event Logging: Records API calls and console actions (eg: creating EC2, deleting S3 etc..)
+2.User Tracking: Identities which IAM user, role, or service performed an actions
+3.S3 Integration: Stores log files automatically in S3
+4.Cloudwatch Integration: Sends notification or triggers alerts
+5.Event History: Lets you view recent events (last 90 days) 
+
+How Cloudtrail Works:
+---------------------
+1.Enable Cloudtrail: Usually one trail per account
+2.Choose S3 bucket: where all logs will be saved
+3.Optionally integrate with Cloudwatch logs to monitor
+4.View or query logs
+
+Goal:
+-----
+.Record all API activity in AWS
+.Store logs in an s3 bucket
+.Send events to cloudwatch logs for monitoring and alertig 
+
+steps for cloudtrail configuration:
+-----------------------------------
+
+Example use case:
+-----------------
+.A developer accidently deletes an s3 bucket
+-->you can open cloudtrail and see who deleted it, when, and from where (IP)			 
+
+23/12/2025
+			 
+Cloud Watch:
+------------
+.Cloudwatch is a monitoring and observability service
+.It collects metrics, logs, and event from aws resources and applications
+and lets you:
+	-Monitor performace
+	-Set alarms
+	-Troubleshoot issues
+	-Visualize everything in dashboards
+	
+Key features:
+-------------
+1.Metrics: collect utilization (EC2 CPU usage, disk I/O, memory, network
+2.Logs: collects data from application
+3.Alarms: Trigger actions when metrics across the threshold
+Ex: if CPU > 80% for minutes --> send alert or stop/start an instance
+
+Alarm state trigger:
+--------------------
+1.In alarm: The metric or expression is outside of the defined threshold.
+2.ok alarm: The metric or expression is within the defined threshold
+3.Insufficient data	: The alarm has just started or not enough data is available.
+
+26/12/2025
+ELB: Elastic Load Balancer:
+---------------------------		
+The 7 OSI Layers: the OSI(open system interactions) model, explain how data moves from one system to another system over the network.
+-it used to design, understand, troubleshoot and map network services including aws.
+
+	1.Layer7- Application layer
+	what it does, Provides network services to end user applications
+
+	Protocols:
+	.HTTP, HTTPS, DNS, FTP
+	
+	Trouble shoot:
+	.website returns 500 error ---> Application issue
+	
+	2.Layer6- Presentation layer
+	What it does, Data formatting, encryption, compresssion
+	
+	protocols:
+	.SSL/TLS (converts http to https)
+	
+	Trouble shoot:
+	.SSL handshakes failure --> Presentation layer issue
+	
+	3.Layer5-Session layer:
+	What it does, Manges sessions between systems
+	
+	example:
+	Authentication sessions
+	
+	Trouble shoot:
+	User logged out frequently--> session issue 
+	
+	4.Layer4-Transport layer:
+	what it does, data transfer and port mangement
+	
+	Protocols:
+	.TCP, UDP
+	
+	trouble shoot:
+	Connection timeout on port 443 --> Transport issue
+	
+	5.Layer3-Network layer:
+	what is does, Routing and IP addressing
+	
+	Protocol:
+	ip(internet protocol)
+	
+	6.Layer2-Data link
+	what it does, MAC addressing and frame delivery
+	
+	protocols
+	Ethernet
+	
+	7.layer1-Physical layer:
+	what it does, transmission of bits
+	
+	Examples
+	.cables, Switches
+	
+	
+What is ELB?
+------------
+ELB automatically distributes incoming traffic across multiple targets(EC2 instances) to ensure,
+
+		-High availability
+		-Scalability
+		-Better application performance
+		
+		
+		Example:
+		flipkart big billion day sale between jan 24th to 27th
+		how many servers required to run my flipkart app?
+		can i create EC2 servers manually to my application ?
+		To run my application i really dont know how many servers required?
+		
+		ASG(Autoscaling group): Automatically increases/add and decreases/remove EC2 instances based on incoming application traffic.
+		
+		min size: 1
+		desired capacity: 2
+		Max size: 5---------------> Monthly billing(EC2 run time)
+		
+		
+		
+		under vertical scaling and horizontal scaling?
+		
+		what is vertical scaling?
+		Ans: Increasing the server resources (CPU/RAM/ROM)---Flipkart (10lakh RPM)
+		
+		What is horizontal scaling?
+		Ans: Increasing no of servers
+		
+	
+Date: 29/12/2025
+
+Autoscaling group components:
+
+1.Launch template:
+	-AMI(Amazon machine images-OS(linux/windows)
+	-Instance type( choose no of CPU and RAM, ex:t2.micro)
+	-Key pair (securely connect instance)
+	-Networking (default), subnets, route tables, nat, internetgateway etc
+	-EBS (elastic block store), only for EC2, volumes, 16TB (SSD/HDD), Ec2 is accidentlty deleted , data EBS
+
+2.Group Size:
